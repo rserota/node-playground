@@ -1,0 +1,44 @@
+What is node?
+
+Node.js is a javascript runtime engine. That means it's just a different environmetn that javascript can run in. The browser is the primary environment that javascript runs in, but with node.js, javascript can also run in a server environment. It's more or less just Chrome's V8 javascript engine, which has been turned into a command-line application, with a few differences.
+
+1: We're not in a browser, so there's no Window object, and there's no DOM.
+2: No browser-based security restrictions, so we can access the file-system, hardware, and network. 
+3: node.js scripts each have their own scope, so we must REQUIRE our MODULES into other MODULES.
+
+// Demonstrate node REPL - read, eval, print, loop
+// demo writing a file, then running that file.  > node helloNode.js
+
+globally defined `process` object provides information about the currently running process
+Particularly useful:
+`process.argv` is an ARGument Vector. first arg is `node`, second is the script name, 3-infinity are all other command-line arguments
+`process.env` is shell environment variables. It lets our script look around to see where it's running. Shows the same info as typing `env` at command line.
+
+IN CLASS CHALLENGE: write a script that reverses a string at the command-line. e.g. `node reverse.js hello world'
+
+Require
+To expose data from one script, assign to `module.exports`. To access that data in another script, require it. You can't pick out any variable from another script, only module.exports is accessible.
+
+
+Core modules: fs
+show how to read/write files with readFileSync and writeFileSync
+IN CLASS CHALLENGE: write a script that copies a file given at the command line, e.g. `node copy input.txt output.txt`
+
+npm - lets us download libraries
+package.json - used to keep track of dependencies, among other things.
+show simplest package.json `{}`
+show npm init
+install underscore, show package json, describe semantic versioning. Mention the request module
+make a gitignore file to ignore node_modules
+
+=-=-=-=-=-=-=-=-=-=-= Afternoon =-=-=-=-=-=-=-=-=-=-=
+
+What is http? communication protocol that clients, including browsers, can use to interact with servers. There are different kinds of requests, but they're mostly similar. 
+
+Lifecycle of http request: (this should be diagrammable)
+type in url, send it to DNS (domain name server). DNS translates the url to an IP address, like a physical address.
+Web server receives the request, and passes it to the web application. Node.js can do the job of the web server and web application.
+The web application parses the request, does some work, and builds a response to send back. 
+The response may prompt the client to send more requests (css, js, img, redirect)
+
+InClass Challenge: Have the page display HTML content, including an h1 and a paragraph tag (you can skip the normal boilerplate and just use the two tags)
