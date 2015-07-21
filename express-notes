@@ -1,0 +1,13 @@
+express notes
+
+express() returns our app object.
+app can listen for requests
+app.set() sets config (this is run once)
+
+app.get, app.post, app.use get run on every request, until we res.send or res.render
+
+serving static files means that clients can directly request files. don't need to make individual routes for each static file. 
+
+two kinds of middleware. app.use is application middleware, but there's also route-level middleware.
+
+controllers connect routes and views
